@@ -1,0 +1,53 @@
+<style>
+    .container {
+        margin-top: 20px;
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+        align-content: center;
+    }
+</style>
+<div class="container">
+    <h3>Welcome to your profile</h3>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+
+        td:nth-child(2) {
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <table>
+        <tr>
+            <td>Your score:</td>
+            <td>{{ score }}</td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>Lastname:</td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+    </table>
+</div>
