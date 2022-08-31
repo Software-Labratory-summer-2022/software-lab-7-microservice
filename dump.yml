@@ -1,0 +1,56 @@
+_format_version: "1.1"
+services:
+- connect_timeout: 60000
+  enabled: true
+  host: host.docker.internal
+  name: Auth
+  port: 9000
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - hosts:
+    - localhost:8000
+    https_redirect_status_code: 426
+    methods:
+    - GET
+    - POST
+    name: Auth
+    path_handling: v0
+    paths:
+    - /register
+    - /login
+    preserve_host: false
+    protocols:
+    - http
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: false
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: host.docker.internal
+  name: Profile
+  port: 9005
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - hosts:
+    - localhost:8000
+    https_redirect_status_code: 426
+    methods:
+    - GET
+    name: Profile
+    path_handling: v0
+    paths:
+    - /accounts/profile
+    preserve_host: false
+    protocols:
+    - http
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: false
+  write_timeout: 60000
